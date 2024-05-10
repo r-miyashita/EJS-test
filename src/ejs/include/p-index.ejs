@@ -1,0 +1,29 @@
+<div class="p-index-container">
+                    
+    <section class="p-index-products">
+        <ul class="p-index-products__list">
+
+            <% const numOfItemsShown = 8; %>
+            <% for( let i = 0; i < numOfItemsShown; i++ ) { %>
+            <li class="p-index-products__item">
+                <a class="p-index-products__link" href="#">
+
+                    <div class="p-index-products__img-wrapper">
+                        <img class="p-index-products__item-img" 
+                            src="<%= products[i].img %>" 
+                            alt="<%= products[i].title %>" 
+                        >
+                    </div>
+                    <p class="p-index-products__item-name"><%= products[i].title %></p>
+                    <p class="p-index-products__item-price"><%= products[i].price %></p>
+
+                </a>
+            </li><!-- <%= (i + 1) %> -->
+            <% } %>
+
+        </ul>
+    </section>
+
+    <a href="#" class="p-index-products__link-detail">View More</a>
+
+</div><!-- / content -->

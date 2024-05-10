@@ -1,0 +1,292 @@
+@charset "UTF-8";
+/*======================================== 
+    Foundation
+========================================*/
+/*======================================== 
+    さき読み （変数・関数など）
+========================================*/
+/*======================================== 
+    pre-setting
+========================================*/
+/*======================================== 
+    setting
+========================================*/
+/*======================================== 
+    pre-setting
+========================================*/
+/*------------------------------ 
+    ルートフォント設定
+        ----> 16px を 10px に設定
+------------------------------*/
+:root {
+  font-size: 62.5%;
+}
+
+/*======================================== 
+    setting
+========================================*/
+/*------------------------------ 
+    font-family
+------------------------------*/
+/*------------------------------ 
+    font-size
+------------------------------*/
+/*======================================== 
+    space
+========================================*/
+/*======================================== 
+    メディアクエリ
+========================================*/
+/*======================================== 
+    スタイル
+========================================*/
+/*======================================== 
+    あと読み
+========================================*/
+/*======================================== 
+    さき読み （変数・関数など）
+========================================*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff;
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+textarea {
+  color: inherit;
+  font: inherit;
+  padding: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+/*======================================== 
+    Layout
+========================================*/
+/*======================================== 
+    Foundation
+========================================*/
+.l-container {
+  background-color: inherit;
+  width: 100vw;
+  height: 100vh;
+  padding-inline: 4rem;
+  margin: 0 auto;
+  max-width: calc(1280px + 8rem);
+}
+
+/*======================================== 
+    Foundation
+========================================*/
+.l-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 2rem;
+  position: sticky;
+  top: 100vh;
+  width: 100%;
+}
+.l-footer__first {
+  display: flex;
+  font-size: 1.2rem;
+  gap: 3rem;
+}
+@media screen and (min-width: 900px) {
+  .l-footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/*======================================== 
+    Foundation
+========================================*/
+.l-header {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  height: 8rem;
+  background-color: inherit;
+  /*================================================== 
+      メイン
+  ==================================================*/
+  /*================================================== 
+      ドロワーメニュー
+  ==================================================*/
+}
+.l-header__inner {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+.l-header__logo {
+  aspect-ratio: calc(180 / 21);
+  width: 180px;
+}
+.l-header__toggle-btn {
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+}
+.l-header__toggle-btn * {
+  background-color: #333;
+  display: inline-block;
+  height: 2px;
+  position: absolute;
+  transition: all 0.5s;
+  width: 30px;
+}
+.l-header__toggle-btn *:first-child {
+  top: 10px;
+}
+.l-header__toggle-btn *:last-child {
+  bottom: 10px;
+}
+.l-header__toggle-btn.js-open * {
+  background-color: #fff;
+}
+.l-header__toggle-btn.js-open *:first-child {
+  transform: translateY(4px) rotate(-45deg);
+}
+.l-header__toggle-btn.js-open *:last-child {
+  transform: translateY(-4px) rotate(45deg);
+}
+.l-header__nav {
+  padding: 3.6rem 5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 1.4rem;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  z-index: 2;
+  transform: translateX(-100%);
+}
+.l-header__nav.js-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+.l-header__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.l-header__overlay {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: all 0.5s;
+}
+.l-header__overlay.js-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*======================================== 
+    Foundation
+========================================*/
+/*======================================== 
+    Object
+========================================*/
+/*------------------------------ 
+    Component
+------------------------------*/
+/*------------------------------ 
+    Project
+------------------------------*/
+/*======================================== 
+    Foundation
+========================================*/
+.p-index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem;
+  padding-bottom: 10rem;
+}
+@media screen and (min-width: 900px) {
+  .p-index-container {
+    gap: 4rem;
+    padding-bottom: calc(10rem * 1.2);
+  }
+}
+
+.p-index-products {
+  display: flex;
+  flex-direction: column;
+}
+.p-index-products__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 4rem 2rem;
+}
+@media screen and (min-width: 900px) {
+  .p-index-products__list {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 4rem 3.5rem;
+  }
+}
+.p-index-products__img-wrapper {
+  aspect-ratio: 1;
+  margin-bottom: 1rem;
+}
+.p-index-products__item {
+  font-size: 1.2rem;
+}
+.p-index-products__link-detail {
+  font-size: 1.4rem;
+}
+
+/*------------------------------ 
+    Utility
+------------------------------*/
+/*========================================
+    Library
+========================================*/
+
+/*# sourceMappingURL=style.css.map */

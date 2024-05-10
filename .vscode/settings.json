@@ -1,0 +1,85 @@
+// settings.json
+
+{
+    /*================================================== 
+        テーマカスタム(プロパティに適用)
+
+            プロパティ調べるコマンド：
+                [Cmd + Shift + p]
+                => [editor.action.inspectTMScopes]
+    ==================================================*/
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "string.quoted.double",
+                    "string.quoted.single",
+                ],
+                "settings": {
+                    "foreground": "#17a26ad1"
+                }
+            },
+            {
+                "scope": ["text.html.derivative"],
+                "settings": {
+                    "foreground": "#2857ffe6",
+                }
+            },
+            {
+                "scope": [
+                    "entity.other.attribute-name.html",
+                    "meta.attribute.class.html",
+                    "meta.tag.inline.a.start.html",
+                ],
+                "settings": {
+                    "foreground": "#de1b1ba6",
+                }
+            },
+            {
+                "scope": [
+                    "punctuation.definition.tag.begin.html",
+                    "punctuation.definition.tag.end.html",
+                ],
+                "settings": {
+                    "foreground": "#e1b5fc",
+                }
+            },
+            {
+                "scope": [
+                    "entity.name.tag.html",
+                    "punctuation.separator.key-value.html",
+                ],
+                "settings": {
+                    "foreground": "#c500f1c6",
+                    "fontStyle": "italic bold"
+                }
+            },
+            {
+                "scope": [
+                    "punctuation.definition.comment.html",
+                    "comment.block.html",
+                ],
+                "settings": {
+                    "foreground": "#A3A3A3",
+                    "fontStyle": "italic bold"
+                }
+            },
+        ]
+    },
+
+    /*================================================== 
+        Highlight (プラグイン)
+    ==================================================*/
+    "highlight.regexes": {
+        "(\\s*<%\\s[\\s\\S]*?%>)": [
+            {
+                "backgroundColor": "#7cfdff55",
+            }
+        ],
+        "(<%=.+%>)": [
+            {
+                "backgroundColor": "#ff97e82e",
+            }
+        ],
+    },
+}

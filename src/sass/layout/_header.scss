@@ -1,0 +1,130 @@
+@use '../foundation/app' as *;
+
+.l-header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    height: 8rem;
+    background-color: inherit;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
+    }
+
+    /*================================================== 
+        メイン
+    ==================================================*/
+
+    &__logo {
+        $width: 180;
+        $height: 21;
+        $ratio-logo: calc(#{$width} / #{$height});
+
+        aspect-ratio: $ratio-logo;
+        width: $width * 1px;
+    }
+
+    &__toggle-btn {
+        $width-parent: 30px;
+        $height-parent: $width-parent;
+        $width-child: $width-parent;
+        $height-child: 2px;
+        $translateY: calc(1 / 3);
+        $pos: $height-parent * $translateY;
+
+        cursor: pointer;
+        position: relative;
+        width: $width-parent;
+        height: $height-parent;
+        z-index: 2;
+
+        * {
+            background-color: $c-primary;
+            display: inline-block;
+            height: $height-child;
+            position: absolute;
+            transition: all .5s;
+            width: $width-child;
+
+            &:first-child {
+                top: $pos;
+            }
+
+            &:last-child {
+                bottom: $pos;
+            }
+        }
+
+        &.js-open * {
+            $pos-to: ($height-parent * 0.5) - ($height-child * 0.5);
+            $translateY-to: $pos-to - $pos;
+
+            background-color: $c-base;
+
+            &:first-child {
+                transform: 
+                translateY($translateY-to)
+                rotate(-45deg)
+            ;
+            }
+
+            &:last-child {
+                transform: 
+                    translateY($translateY-to * -1)
+                    rotate(45deg)
+                ;
+            }
+        }
+    }
+
+    /*================================================== 
+        ドロワーメニュー
+    ==================================================*/
+
+    &__nav {
+        padding: 3.6rem 5rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        font-size: $fs-m;
+        color: $c-base;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .5s;
+        z-index: 2;
+        transform: translateX(-100%);
+
+        &.js-open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: $fs-m;
+    }
+
+    &__overlay {
+        visibility: hidden;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        background-color: $c-base-dark;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        transition: all .5s;
+
+        &.js-open {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

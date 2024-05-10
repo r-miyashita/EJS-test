@@ -1,0 +1,41 @@
+/*======================================== 
+    メディアクエリ
+========================================*/
+$breakpoints: (
+    'lp': 900px,
+    'lp2': 1280px
+);
+
+@mixin mq($breakpoint: lp, $rule: min) {
+    @if map-has-key($breakpoints, $breakpoint ) {
+        $breakpoint: map-get($breakpoints, $breakpoint);
+
+    } @else {
+        $breakpoint: $breakpoint;
+    }
+
+    @if $rule == max {
+        $breakpoint: $breakpoint - 1px;
+    }
+
+    @media screen and (#{$rule}-width: $breakpoint) {
+        @content
+    }
+};
+
+/*======================================== 
+    スタイル
+========================================*/
+
+@mixin flex-col($align-items: center) {
+    align-items: $align-items;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-row($justify-content: center) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify-content;
+}
+

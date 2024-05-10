@@ -1,0 +1,33 @@
+{
+  "name": "intermediate-store-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "ejs:compile": "ejs-cli -b src/ejs/ \"**/*.ejs\" -e \"include/\" -o dist/ -O src/js/data.json",
+    "ejs:format": "prettier --write \"dist/**/*.html\"",
+    "ejs:build": "run-s ejs:compile ejs:format",
+
+    "dev:ejs": "chokidar \"src/ejs/\" -c \"npm run ejs:build\" --initial",
+    "dev:sass": "sass --watch src/sass:dist/assets/css",
+    "dev:cpx2-js": "cpx \"src/js/**/*.js\" dist/assets/js --watch --clean",
+    "dev:cpx2-img": "cpx \"src/img/**/*\" dist/assets/img --watch --clean",
+    "dev:browser": "browser-sync start --config bs-config.js",
+
+    "all:dev": "run-p dev:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@markuplint/ejs-parser": "^4.6.1",
+    "browser-sync": "^3.0.2",
+    "chokidar-cli": "^3.0.0",
+    "cpx2": "^7.0.1",
+    "ejs-cli": "^2.2.3",
+    "markuplint": "^4.8.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.2.5",
+    "sass": "^1.76.0"
+  }
+}

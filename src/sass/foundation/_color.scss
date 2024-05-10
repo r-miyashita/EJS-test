@@ -1,0 +1,25 @@
+/*======================================== 
+    pre-setting
+========================================*/
+
+// white
+$white: #fff;
+
+// black
+$black-light: rgba(0, 0, 0, 0.8);
+$black: #333;
+
+// gray
+$gray: #DCDBDB;
+
+
+/*======================================== 
+    setting
+========================================*/
+
+$c-base: $white;
+$c-base-dark: $black-light;
+
+$c-primary: $black;
+
+$c-secondary: $gray;

@@ -1,0 +1,49 @@
+@use '../../foundation/app' as *;
+
+.p-index-container {
+    $gap: 6rem;
+    $padding-bottom: 10rem;
+    $padding-bottom-lp: calc(#{$padding-bottom} * 1.2);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap;
+    padding-bottom: $padding-bottom;
+
+    @include mq(lp) {
+        gap: $gap * calc(2 / 3);
+        padding-bottom: $padding-bottom-lp;
+    }
+}
+
+.p-index-products {
+    display: flex;
+    flex-direction: column;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 4rem 2rem;
+
+        @include mq(lp) {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 4rem 3.5rem;
+        }
+    }
+
+    &__img-wrapper {
+        aspect-ratio: 1;
+        margin-bottom: 1rem;
+    }
+
+    &__item {
+        font-size: $fs-s;
+    }
+
+    &__link-detail {
+        font-size: $fs-m;
+    }
+}
